@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Coursework</title>
+</head>
+
+<body>
+    <div class="container">
+        <ul class="nav justify-content-end">
+            <li class="nav-item">
+                <button class="nav-link btn btn-primary btn-lg active" id="logOutBtn">log out</button>
+            </li>
+        </ul>
+        <br>
+        <form action="/api/coursework" method="POST" enctype="multipart/form-data">
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Title</label>
+                <div class="col-sm-10">
+                    <input type="text" minlength="5" maxlength="100" name="title" class="form-control" id="inputTitle">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Password</label>
+                <div class="col-sm-10">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                        </div>
+                        <div class="custom-file" id="customFile" lang="es">
+                            <input type="file" accept=".zip" id="fileInput" class="custom-file-input" name="file"
+                                aria-describedby="fileHelp">
+                            <label class="custom-file-label" id="labelFile" for="exampleInputFile">
+                                Select file...
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{err}}
+            <button type="submit" id="create" class="btn btn-success btn-lg btn-block">Create</button>
+            <button type="button" id="backBtn" class="btn btn-secondary btn-lg btn-block">Back</button>
+        </form>
+    </div>
+</body>
+<script>
+
+    document.getElementById("fileInput").addEventListener("change", function () {
+        let fileName = document.getElementById("fileInput").value;
+        document.getElementById("labelFile").innerHTML = fileName;
+    });
+
+    document.getElementById("backBtn").addEventListener("click", back);
+    document.getElementById("logOutBtn").addEventListener("click", logOut);
+
+    function back() {
+        window.location.href = '/view/coursework';
+    }
+
+    function logOut() {
+        window.location.href = '/logout';
+    }
+
+</script>
+
+</html>

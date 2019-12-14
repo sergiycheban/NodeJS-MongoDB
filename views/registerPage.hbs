@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="container">
+        <form action="/api/users" method="POST">
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Faculty Number</label>
+                <div class="col-sm-10">
+                    <input type="number" minlength="10" maxlength="10" placeholder="1601321..." class="form-control"
+                        name="facultyNumber">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">First Name</label>
+                <div class="col-sm-10">
+                    <input type="text" maxlength="100" placeholder="Ivan" class="form-control" name="fName">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Second Name</label>
+                <div class="col-sm-10">
+                    <input type="text" maxlength="100" class="form-control" placeholder="Ivanov" id="inputSName"
+                        name="sName">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Last Name</label>
+                <div class="col-sm-10">
+                    <input type="text" maxlength="100" class="form-control" placeholder="Ivanovich" id="inputLName"
+                        name="lName">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Password</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="inputPassword" name="password">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Confirm Password</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="inputConfirmPassword" name="confirmPassword">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Specialty</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputSpecialty" name="specialty">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Course</label>
+                <div class="col-sm-10">
+                    <div class="form-group">
+                        <select name="course" class="form-control" id="sel1">
+                            <option>1 курс</option>
+                            <option>2 курс</option>
+                            <option>3 курс</option>
+                            <option>4 курс</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Form of study</label>
+                <div class="col-sm-10">
+                    <div class="form-group">
+                        <select name="trainingForm" class="form-control" id="sel1">
+                            <option>Редовно</option>
+                            <option>Заочно</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            {{err}}
+            <button type="submit" id="registerBtn" class="btn btn-success btn-lg btn-block">Register</button>
+            <button type="button" id="backBtn" class="btn btn-secondary btn-lg btn-block">Back</button>
+        </form>
+    </div>
+</body>
+<script>
+    document.getElementById("backBtn").addEventListener("click", back);
+
+    function back() {
+        window.location.href = '/';
+    }
+</script>
+
+</html>

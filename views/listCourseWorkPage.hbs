@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>List Coursework</title>
+</head>
+
+<body>
+    <div class="container">
+        <ul class="nav justify-content-end">
+            <li class="nav-item">
+                <button class="nav-link btn btn-primary btn-lg active" id="logOutBtn">log out</button>
+            </li>
+        </ul>
+        <br>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Download Link</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each userId}}
+                <tr>
+                    <th scope="row">{{this.title}}</th>
+                    <td>{{this.date}}</td>
+                    <td><a class="btn btn-primary" href={{this.file}} role="button">Download</a></td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+
+        <button type="submit" id="addBtn" class="btn btn-success btn-lg btn-block">Add New</button>
+
+    </div>
+</body>
+<script>
+    document.getElementById("addBtn").addEventListener("click", addNew);
+    document.getElementById("logOutBtn").addEventListener("click", logOut);
+
+    function addNew() {
+        window.location.href = '/create/coursework';
+    }
+
+    function logOut() {
+        window.location.href = '/logout';
+    }
+</script>
+
+</html>
