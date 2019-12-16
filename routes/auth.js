@@ -1,14 +1,8 @@
 const Joi = require('joi');
-const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
 const {
     User
 } = require('../models/user');
-const {
-    CourseWork
-} = require('../models/coursework');
 const express = require('express');
-const config = require('config');
 const router = express.Router();
 
 router.post('/', async (req, res) => {
